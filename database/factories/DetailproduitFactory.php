@@ -7,9 +7,10 @@ use Faker\Generator as Faker;
 
 $factory->define(Detailproduit::class, function (Faker $faker) {
     return [
-        "dateentree"=> &faker ->datetime.
-        "datesortie"=> &faker ->datetime.
-        "quantite"=> &faker ->randomDigit. 
+        'dateentree'=>&faker->datetime,
+        'datesortie'=>&faker->datetime,
+        'quantite'=>&<faker->randomNumber,
+        'Produit_id'=>Produit::get('id')->random()
     ];
 });
 /*      $table->increments('id');

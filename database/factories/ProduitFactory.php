@@ -7,9 +7,13 @@ use Faker\Generator as Faker;
 
 $factory->define(Produit::class, function (Faker $faker) {
     return [
-        "nomproduit" => &faker ->name.
-        "numproduit"=> &faker ->randomDigit.
-        "typeproduit"=> &faker ->sentence.
+
+        'numproduit'=>&faker->randomNumber,
+        'nomproduit'=>$faker->word,
+        'typeproduit'=>&faker->sentence,
+        'created_at'=>now()
+
+      
     ];
 });
 /*$table->integer('numproduit');

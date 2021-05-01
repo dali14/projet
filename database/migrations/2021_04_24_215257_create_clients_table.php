@@ -13,18 +13,17 @@ class CreateClientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('clients', function (Blueprint $table) {
-           $table->increments('id');  
-           $table->integer('Cin');
-           $table->string('nom',70);
-           $table->string('prenom',70);
-           $table->string('Gmail',250);
-           $table->string('adresse',255);
-           $table->integer('Tel');
-           $table->integer('code_postale');
-           $table->integer('Admin_id')->unsigned();
-           $table->foreign('Admin_id')->references('id')->on('admins')->onDelete('restrict')->onUpdate('restrict');
-            $table->timestamps();
+            Schema::create('clients', function (Blueprint $table) {
+                $table->increments('id');  
+                $table->integer('Cin');
+                $table->string('nom',70);
+                $table->string('prenom',70);
+                $table->string('Gmail',250);
+                $table->string('adresse',255);
+                $table->Biginteger('Tel');
+                $table->integer('Admin_id')->unsigned();
+                $table->foreign('Admin_id')->references('id')->on('admins')->onDelete('restrict')->onUpdate('restrict');
+                 $table->timestamps();
         });
     }
 

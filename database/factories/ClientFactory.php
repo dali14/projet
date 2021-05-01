@@ -1,22 +1,19 @@
-
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-
 use App\Admin;
+use App\Client;
 use Faker\Generator as Faker;
 
-$factory->define(Admin::class, function (Faker $faker) {
+$factory->define(Client::class, function (Faker $faker) {
     return [
+        'Cin'=> $faker->randomDigit,
         'nom'=> $faker->firstName,
         'prenom'=> $faker->lastName,
-        'login'=> $faker->sentence,
-        'password'=> $faker->word,
         'Gmail'=> $faker->freeEmail,
         'adresse'=> $faker->streetAddress,
         'Tel'=> $faker->e164PhoneNumber,
-        'created_at'=>now()
+        'Admin_id'=>Admin::get('id')->random()
         
-      
-      ];
+    ];
 });

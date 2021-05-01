@@ -21,9 +21,10 @@ class CreateAdminsTable extends Migration
             $table->string('password');
             $table->string('Gmail',250);
             $table->string('adresse');
-            $table->integer('Tel');
+            $table->Biginteger('Tel');
             $table->timestamps();
         });
+
     }
 
     /**

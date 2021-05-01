@@ -12,3 +12,4 @@ class Detailproduit extends Model
         return $this->belongsTo('App\Produit');
     }
 }
+

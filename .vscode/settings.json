@@ -1,4 +1,3 @@
 {
-    "git.allowForcePush": true,
-    "git.autofetch": true
+    "git.allowForcePush": true
 }

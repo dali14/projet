@@ -13,4 +13,3 @@ class Admin extends Model
 }
 
 
-//admin

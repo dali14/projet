@@ -12,3 +12,4 @@ class Client extends Model
     }
 }
 //clients
+//client

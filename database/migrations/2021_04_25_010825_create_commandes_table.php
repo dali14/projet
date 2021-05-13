@@ -15,7 +15,7 @@ class CreateCommandesTable extends Migration
     {
         Schema::create('commandes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('numcommande');
+            $table->Biginteger('numcommande');
             $table->date('datecommande');
             $table->enum('etatcommande', ['confirmed','prepared','shipped']);
             $table->integer('Client_id')->unsigned();

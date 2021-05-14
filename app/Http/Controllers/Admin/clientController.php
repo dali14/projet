@@ -47,7 +47,7 @@ class clientController extends Controller
      */
     public function show(Client $client)
     {
-        //
+        return view('admin.clients.affiche',['client'=> $client]);
     }
 
     /**

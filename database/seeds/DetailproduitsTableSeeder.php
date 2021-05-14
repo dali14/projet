@@ -11,6 +11,6 @@ class DetailproduitsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Detailproduit::class, 10)->create()->create();
+        factory(Detailproduit::class, 10)->create()->create();
     }
 }

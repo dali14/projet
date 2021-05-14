@@ -13,8 +13,7 @@ class ProduitsTableSeeder extends Seeder
     public function run()
     {
        
-    factory(App\Produit::class, 10)->create()->create();
-    //each(function ($user) {
-        //$user->posts()->save(factory(App\Post::class)->make());
+    factory(Produit::class, 10)->create()->create();
+   
     }
 }

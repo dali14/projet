@@ -1,5 +1,5 @@
 <?php
-
+use App\ Detailcommande;
 use Illuminate\Database\Seeder;
 
 class DetailcommandesTableSeeder extends Seeder
@@ -11,6 +11,6 @@ class DetailcommandesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Detailcommandes::class, 100)->create();
     }
 }

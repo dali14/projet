@@ -10,6 +10,7 @@
           <p class="card-text">Adresse: <strong>{{ $client->adresse}}</strong></p>
           <p class="card-text">Tel: <strong>{{ $client->Tel}}</strong></p>
         
+        
         </div>
       </div>
 @endsection

@@ -13,7 +13,7 @@ $factory->define(Client::class, function (Faker $faker) {
         'Gmail'=> $faker->freeEmail,
         'adresse'=> $faker->streetAddress,
         'Tel'=> $faker->e164PhoneNumber,
-        'Admin_id'=>Admin::get('id')->random()
+        'created_at'=>now()
         
     ];
 });

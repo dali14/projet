@@ -61,13 +61,13 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <span data-feather="shopping-cart"></span>
+              <span data-feather="shopping-cart"  class="fas fa-shopping-basket"></span>
               Produits
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/clients">
-              <span data-feather="users"></span>
+              <span data-feather="users"  class="fas fa-users"></span>
               Clients
             </a>
           </li>

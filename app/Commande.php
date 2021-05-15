@@ -14,4 +14,6 @@ class Commande extends Model
     {
         return $this->hasMany('App\Paiement');
     }
+    return $this->belongsTo('App\Client');
+
 }

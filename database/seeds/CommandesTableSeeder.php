@@ -1,7 +1,7 @@
 <?php
-use App\Commande;
-use Illuminate\Database\Seeder;
 
+use Illuminate\Database\Seeder;
+use App\Commande;
 class CommandesTableSeeder extends Seeder
 {
     /**

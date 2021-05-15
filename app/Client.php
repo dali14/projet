@@ -6,8 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
+   protected $guarded = [];
+ 
+
     public function Admin()
     {
-       return $this->belongsTo('App\Admin');
+      return $this->hasMany('App\ Commande');
     }
 }

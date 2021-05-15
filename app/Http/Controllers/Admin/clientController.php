@@ -15,7 +15,7 @@ class clientController extends Controller
      */
     public function index()
     {
-        return view('admin.clients.index', ['clients' => Client::paginate(5)]);
+        return view('admin.clients.index', ['clients' => Client::paginate(10)]);
     }
 
     /**
@@ -25,7 +25,7 @@ class clientController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.clients.create');
     }
 
     /**
@@ -36,7 +36,23 @@ class clientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       // dd($request);
+        $validatedData=$request->validate([
+        
+            'Cin'=>'required',
+            'nom'=>' required|min:3',
+            'prenom'=>'required|min:3',
+            'Gmail'=>'required|email',
+            'adresse'=>'required',
+            'Tel'=>'required',
+           
+        ]);
+        $client = Client::create($validatedData);
+
+
+        return redirect()->route('clients.show', $client);
+
+       
     }
 
     /**

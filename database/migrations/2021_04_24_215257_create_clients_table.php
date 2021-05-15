@@ -21,9 +21,7 @@ class CreateClientsTable extends Migration
                 $table->string('Gmail',250);
                 $table->string('adresse',255);
                 $table->Biginteger('Tel');
-                $table->integer('Admin_id')->unsigned();
-                $table->foreign('Admin_id')->references('id')->on('admins')->onDelete('restrict')->onUpdate('restrict');
-                 $table->timestamps();
+                $table->timestamps();
         });
     }
 

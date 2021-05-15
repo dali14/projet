@@ -37,16 +37,9 @@ class clientController extends Controller
     public function store(Request $request)
     {
        // dd($request);
-        $validatedData=$request->validate([
+       $validatedData=$request->validate($this->validationRules());
         
-            'Cin'=>'required',
-            'nom'=>' required|min:3',
-            'prenom'=>'required|min:3',
-            'Gmail'=>'required|email',
-            'adresse'=>'required',
-            'Tel'=>'required',
-           
-        ]);
+         
         $client = Client::create($validatedData);
 
 
@@ -86,15 +79,8 @@ class clientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        $validatedData=$request->validate([
+        $validatedData=$request->validate($this->validationRules());
         
-            'Cin'=>'required',
-            'nom'=>' required|min:3',
-            'prenom'=>'required|min:3',
-            'Gmail'=>'required|email',
-            'adresse'=>'required',
-            'Tel'=>'required',
-        ]);
       
             $client ->update($validatedData);
             return redirect()->route('clients.show', $client);
@@ -111,5 +97,15 @@ class clientController extends Controller
     public function destroy(Client $client)
     {
         //
+    }
+    private function validationRules(){
+        return [
+            'Cin'=>'required',
+            'nom'=>' required|min:3',
+            'prenom'=>'required|min:3',
+            'Gmail'=>'required|email',
+            'adresse'=>'required',
+            'Tel'=>'required',
+        ];
     }
 }

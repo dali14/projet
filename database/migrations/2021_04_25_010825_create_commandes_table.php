@@ -19,7 +19,7 @@ class CreateCommandesTable extends Migration
             $table->date('datecommande');
             $table->enum('etatcommande', ['confirmed','prepared','shipped']);
             $table->integer('Client_id')->unsigned();
-           $table->foreign('Client_id')->references('id')->on('clients')->onDelete('restrict')->onUpdate('restrict');
+           $table->foreign('Client_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

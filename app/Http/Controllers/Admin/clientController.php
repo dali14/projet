@@ -37,20 +37,13 @@ class clientController extends Controller
     public function store(Request $request)
     {
        // dd($request);
-        $validatedData=$request->validate([
+       $validatedData=$request->validate($this->validationRules());
         
-            'Cin'=>'required',
-            'nom'=>' required|min:3',
-            'prenom'=>'required|min:3',
-            'Gmail'=>'required|email',
-            'adresse'=>'required',
-            'Tel'=>'required',
-           
-        ]);
+         
         $client = Client::create($validatedData);
 
 
-        return redirect()->route('clients.show', $client);
+        return redirect()->route('clients.show', $client)->with('storeClient', "Client Ajouter Avec Succés!");
 
        
     }
@@ -74,7 +67,7 @@ class clientController extends Controller
      */
     public function edit(Client $client)
     {
-        //
+        return view('admin.clients.edit',['client'=> $client]);
     }
 
     /**
@@ -86,7 +79,13 @@ class clientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        //
+        $validatedData=$request->validate($this->validationRules());
+        
+      
+            $client ->update($validatedData);
+            return redirect()->route('clients.show', $client)->with('updateClient', "Client Modifier Avec Succés!");
+           
+       
     }
 
     /**
@@ -97,6 +96,19 @@ class clientController extends Controller
      */
     public function destroy(Client $client)
     {
-        //
+        $client->delete();
+        return redirect()->route('clients.index')->with('deleteClient', 'Client Supprimer Avec Succés!');
+          
+
+    }
+    private function validationRules(){
+        return [
+            'Cin'=>'required',
+            'nom'=>' required|min:3',
+            'prenom'=>'required|min:3',
+            'Gmail'=>'required|email',
+            'adresse'=>'required',
+            'Tel'=>'required',
+        ];
     }
 }

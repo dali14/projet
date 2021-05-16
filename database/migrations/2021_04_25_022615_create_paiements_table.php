@@ -19,7 +19,7 @@ class CreatePaiementsTable extends Migration
             $table->string('type');
             $table->date('datepaiement');
             $table->integer('Commande_id')->unsigned();
-            $table->foreign('Commande_id')->references('id')->on('Commandes')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('Commande_id')->references('id')->on('Commandes')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

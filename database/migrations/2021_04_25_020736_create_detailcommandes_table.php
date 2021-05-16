@@ -20,7 +20,7 @@ class CreateDetailcommandesTable extends Migration
             $table->integer('quantitecommande');
             $table->string('adressecommande');
             $table->integer('Commande_id')->unsigned();
-            $table->foreign('Commande_id')->references('id')->on('Commandes')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('Commande_id')->references('id')->on('Commandes')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('Produit_id')->unsigned();
             $table->foreign('Produit_id')->references('id')->on('produits')->onDelete('restrict')->onUpdate('restrict');
             $table->timestamps();

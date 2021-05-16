@@ -43,7 +43,7 @@ class clientController extends Controller
         $client = Client::create($validatedData);
 
 
-        return redirect()->route('clients.show', $client);
+        return redirect()->route('clients.show', $client)->with('storeClient', "Client Ajouter Avec Succés!");
 
        
     }
@@ -83,7 +83,7 @@ class clientController extends Controller
         
       
             $client ->update($validatedData);
-            return redirect()->route('clients.show', $client);
+            return redirect()->route('clients.show', $client)->with('updateClient', "Client Modifier Avec Succés!");
            
        
     }
@@ -97,7 +97,7 @@ class clientController extends Controller
     public function destroy(Client $client)
     {
         $client->delete();
-        return redirect()->route('clients.index');
+        return redirect()->route('clients.index')->with('deleteClient', 'Client Supprimer Avec Succés!');
           
 
     }

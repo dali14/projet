@@ -1,5 +1,13 @@
 @extends('layouts.admin')
 @section('main')
+@if (session('deleteClient'))
+    <div class="alert alert-dismissible alert-success fade show" role="alert">
+        {{ session('deleteClient') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
 
     <h2><i class="fas fa-users"></i> Liste des Clients</h2><br> <br>
     <a href="{{ route('clients.create')}}" class="btn btn-outline-primary"   > <i class="fas fa-user-plus"></i> Nouveau  Client</a> <br> <br> <br>

@@ -11,12 +11,17 @@ $factory->define(Produit::class, function (Faker $faker) {
         'numproduit'=>$faker->randomNumber,
         'nomproduit'=>$faker->word,
         'typeproduit'=>$faker->sentence,
+        'prixproduit'=>$faker->randomFloat(3),
         'created_at'=>now()
 
       
     ];
 });
-/*$table->integer('numproduit');
+/*
+    $table->increments('id');
+            $table->integer('numproduit');
             $table->string('nomproduit');
             $table->string('typeproduit');
-            $table->double('prixdevente', 8, 3); */
+            $table->double('prixdevente', 8, 3);
+            $table->timestamps();
+*/

@@ -13,7 +13,13 @@ class Commande extends Model
     public function paiements()
     {
         return $this->hasMany('App\Paiement');
+        
     }
-    return $this->belongsTo('App\Client');
+
+    public function client()
+    {
+        return $this->belongsTo('App\Client');
+    }
+    
 
 }

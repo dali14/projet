@@ -23,7 +23,7 @@
     <div id="app">
   {{------------------------------------navigation-------------------------------------------------}}
     @include('layouts/navbar')
-    {{------------------------------------navigation-------------------------------------------------}}
+    {{------------------------------------page content-------------------------------------------------}}
         <main class=" container py-4">
             @yield('content')
         </main>
@@ -31,6 +31,8 @@
          <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
         </footer>
+
+       
     </div>
 </body>
 </html>

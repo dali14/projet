@@ -9,7 +9,7 @@ $factory->define(Commande::class, function (Faker $faker) {
     return [
         'numcommande'=>$faker->randomNumber,
         'datecommande'=>$faker->datetime,
-        'etatcommande'=>$faker->randomElement,
+        'etatcommande'=>$faker->randomElement(['confirmed','prepared','shipped']),
         'Client_id'=>Client::get('id')->random(),
         'created_at'=>now()
     ];

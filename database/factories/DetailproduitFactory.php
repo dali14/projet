@@ -10,13 +10,15 @@ $factory->define(Detailproduit::class, function (Faker $faker) {
         'dateentree'=>$faker->datetime,
         'datesortie'=>$faker->datetime,
         'quantite'=>$faker->randomNumber,
-        'Produit_id'=>Produit::get('id')->random()
+        'Produit_id'=>Produit::get('id')->random(),
+        'created_at'=>now()
     ];
 });
 /*      $table->increments('id');
             $table->date('dateentree');
             $table->date('datesortie');
             $table->integer('quantite');
+
             $table->integer('Produit_id')->unsigned();
             $table->foreign('Produit_id')->references('id')->on('produits')->onDelete('restrict')->onUpdate('restrict');
             $table->timestamps();*/ 

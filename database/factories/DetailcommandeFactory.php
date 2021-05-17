@@ -7,8 +7,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Detailcommande::class, function (Faker $faker) {
     return [
-        'prixunitaire'=>$faker->randomFloat,
-        'prixtotale'=>$faker->randomFloat,
+        'prixunitaire'=>$faker->randomFloat(3),
+        'prixtotale'=>$faker->randomFloat(3),
         'quantitecommande'=>$faker->randomNumber,
         'adressecommande'=>$faker->address,
         'Commande_id'=>Commande::get('id')->random(),

@@ -22,3 +22,4 @@ Route::get('/admin', function (){
     return view('admin.dashbord');
 })->middleware('auth','admin');
 Route::resource('clients', 'Admin\clientController');
+Route::resource('commandes', 'Admin\commandeController');

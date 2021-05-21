@@ -72,7 +72,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/commandes">
               <span data-feather="bar-chart-2"></span>
         Commande
             </a>

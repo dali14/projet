@@ -26,7 +26,7 @@
           <p class="card-text">Adresse: <strong>{{ $commande->etatcommande}}</strong></p>
         
           <hr>
-          <a href="{{ route('commandes.edit', ['commande' => $commande->id]) }}" class="btn btn-outline-primary" title="Modifier commande {{ $commande->id.' '.$commande->datecommande  }}">
+          <a href="{{ route('commandes.edit', ['commande' => $commande->id]) }}" class="btn btn-outline-primary" title="Modifier Etat commande {{ $commande->id.' '.$commande->datecommande  }}">
               <i class="fas fa-user-edit"></i>
           </a>
          <a href="{{ route('commandes.destroy', ['commande' => $commande->id]) }}" class="btn btn-outline-primary" title="Supprimer Commande{{ $commande->id' '.$commande->datecommande }}"  

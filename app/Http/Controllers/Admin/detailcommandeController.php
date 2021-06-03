@@ -15,7 +15,7 @@ class detailcommandeController extends Controller
      */
     public function index()
     {
-        return view('admin.detailcommandes.index');
+        return view('admin.detailcommandes.index', ['detailcommandes' => Detailcommande::all()]);
     }
 
     /**

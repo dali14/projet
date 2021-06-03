@@ -47,10 +47,17 @@
               </td>
             </tr>
             @endforeach
-
+            
       
          
         </tbody>
+        
 
+        
       </table>
+      <div class="mx-auto" style="width: 500px;">
+      {{ $clients->links() }}
+</div>
+      
+      
 @endsection

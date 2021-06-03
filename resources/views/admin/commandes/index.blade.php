@@ -10,7 +10,7 @@
 @endif
 
     <h2><i class="fas fa-users"></i> Liste des Commandes</h2><br> <br>
-    <a href="{{ route('commandes.create')}}" class="btn btn-outline-primary"   > <i class="fas fa-user-plus"></i> Nouveau  Commande</a> <br> <br> <br>
+    
     <table class="table table-striped">
         <thead>
             <th scope="col">#</th>

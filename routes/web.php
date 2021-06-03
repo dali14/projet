@@ -21,5 +21,15 @@ Route::get('/admin', function (){
 
     return view('admin.dashbord');
 })->middleware('auth','admin');
+
+
 Route::resource('clients', 'Admin\clientController');
 Route::resource('commandes', 'Admin\commandeController');
+Route::resource('detailcommande' , 'admin\detailcommandeController');
+
+/*Route::get('/clients', function (){
+
+    return view('');
+})->middleware('auth','admin');*/
+
+

@@ -37,7 +37,7 @@
         
 
               <td> 
-                  <a href="{{ route('commandes.show',['commande' =>$commande ->id ])}}" class="btn btn-outline-primary" title="Afficher les détails  {{ $commande->nom.' '.$commande->prenom }}"> <i class="fas fa-user-tag"></i></a>
+                  <a href="{{ url('detailcommande' , [$commande->id]) }}" class="btn btn-outline-primary" title="Afficher les détails  {{ $commande->nom.' '.$commande->prenom }}"> <i class="fas fa-user-tag"></i></a>
                   <a href="{{ route('commandes.edit', ['commande' => $commande->id])}}" class="btn btn-outline-primary " title=" Modifier commande {{ $commande->nom.' '.$commande->prenom }}">
                     <i class="fas fa-user-edit"></i>
 

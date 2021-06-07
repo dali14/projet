@@ -11,6 +11,6 @@ class CommandesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Commande::class, 10)->create();
+        factory(Commande::class, 100)->create();
     }
 }

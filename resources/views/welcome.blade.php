@@ -2,12 +2,12 @@
  @section('content')
 
   <div class="jumbotron">
-        projet Laravel
+    
  
   <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    <h1 class="my-4">Shop Name</h1>
+                    <h1 class="my-4">Gestion Des Ventes</h1>
                     <div class="list-group">
                     @foreach ($produits as $produit) 
                               <a class="list-group-item " href="#!">{{ $produit->nomproduit }}</a>

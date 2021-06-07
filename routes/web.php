@@ -26,4 +26,7 @@ Route::get('/admin', function (){
 Route::resource('clients', 'Admin\clientController')->middleware(['auth','admin']);
 Route::resource('commandes', 'Admin\commandeController')->middleware(['auth','admin']);
 Route::resource('detailcommande' , 'admin\detailcommandeController')->middleware(['auth','admin']);
+Route::get('/panier/add','Admin\cartController@add')->name('cart_add');
+Route::get('/panier','Admin\cartController@index')->name('cart_index');
+
 

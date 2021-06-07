@@ -3,7 +3,7 @@
 @section('main')
 
     <h3>  Details commande #{{ $detailcommande->Commande_id}}  </h3>
-    @foreach ($detailcommande as $key => $Commande_id)
+     
     <div class="card" style="width: 18rem;">
     <div class="card-body">
     <h5 class="card-title">{{ $detailcommande->Commande_id}}</h5>
@@ -17,6 +17,6 @@
   
 </div>
 
-@endforeach
+
 
 @endsection

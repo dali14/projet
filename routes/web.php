@@ -20,16 +20,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', function (){
 
     return view('admin.dashbord');
-})->middleware('auth','admin');
+})->middleware('auth','admin')->name('admin.dashbord');
 
 
-Route::resource('clients', 'Admin\clientController');
-Route::resource('commandes', 'Admin\commandeController');
-Route::resource('detailcommande' , 'admin\detailcommandeController');
-
-/*Route::get('/clients', function (){
-
-    return view('');
-})->middleware('auth','admin');*/
-
+Route::resource('clients', 'Admin\clientController')->middleware(['auth','admin']);
+Route::resource('commandes', 'Admin\commandeController')->middleware(['auth','admin']);
+Route::resource('detailcommande' , 'admin\detailcommandeController')->middleware(['auth','admin']);
 

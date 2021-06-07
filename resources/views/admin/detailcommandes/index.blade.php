@@ -27,6 +27,6 @@
     </tr>
        @endforeach
   </tbody>
-  {{ $detailcommandes->links() }}
+  
 </table>
 @endsection

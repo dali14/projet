@@ -26,6 +26,8 @@ Route::get('/admin', function (){
 Route::resource('clients', 'Admin\clientController');
 Route::resource('commandes', 'Admin\commandeController');
 Route::resource('detailcommande' , 'admin\detailcommandeController');
+Route::resource('produits' , 'admin\ProduitController');
+
 
 /*Route::get('/clients', function (){
 

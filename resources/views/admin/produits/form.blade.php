@@ -1,4 +1,5 @@
 @csrf
+
         <div class="form-group">
             <label for="nomproduit">Nom de Produit</label>
             <input type="text" name="nomproduit" value="{{ $produit->nomproduit ?? old('nomproduit') }}"  id="nomproduit" class="form-control" placeholder="Tapez un nom de produit">

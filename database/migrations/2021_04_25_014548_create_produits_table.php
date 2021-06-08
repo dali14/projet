@@ -19,7 +19,9 @@ class CreateProduitsTable extends Migration
             $table->string('nomproduit');
             $table->string('typeproduit');
             $table->double('prixdevente', 8, 3);
+            $table->string('image');
             $table->timestamps();
+
         });
     }
 

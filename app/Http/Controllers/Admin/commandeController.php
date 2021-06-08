@@ -78,13 +78,16 @@ class commandeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Commande $commande)
-    {
-        $validatedData=$request->validate($this->validationRules());
+    {   
         
-      
-            $commande ->update($validatedData);
-            return redirect()->route('commandes.show', $commande)->with('updateCommande', "Commande Modifier Avec Succés!");
-           
+        $etat = request('etat');
+        
+        $commande->etatcommande = $etat;
+        
+        $commande->save();
+        
+
+        return view('admin.commandes.edit',['commande'=> $commande]);
        
     }
 

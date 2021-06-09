@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Client;
+use App\Mail\Newclient;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class clientController extends Controller
 {
@@ -41,8 +43,7 @@ class clientController extends Controller
         
          
         $client = Client::create($validatedData);
-
-
+         Mail::to($client->Gmail)->send(new Newclient($client));
         return redirect()->route('clients.show', $client)->with('storeClient', "Client Ajouter Avec Succés!");
 
        
@@ -103,12 +104,12 @@ class clientController extends Controller
     }
     private function validationRules(){
         return [
-            'Cin'=>'required',
+            'Cin'=>'required|min:8',
             'nom'=>' required|min:3',
             'prenom'=>'required|min:3',
             'Gmail'=>'required|email',
             'adresse'=>'required',
-            'Tel'=>'required',
+            'Tel'=>'required|min:8',
         ];
     }
 }

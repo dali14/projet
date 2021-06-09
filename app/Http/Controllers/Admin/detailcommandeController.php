@@ -47,7 +47,7 @@ class detailcommandeController extends Controller
      */
     public function show(Detailcommande $detailcommande)
     {
-        return view('admin.detailcommandes.affiche',['detailcommande' => $detailcommande]);
+        return view('admin.detailcommandes.affiche',['detailcommande' => $detailcommande->commande->detailcommandes]);
     }
 
     /**

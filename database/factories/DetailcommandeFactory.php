@@ -3,6 +3,8 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\Detailcommande;
+use App\Commande;
+use App\Produit;
 use Faker\Generator as Faker;
 
 $factory->define(Detailcommande::class, function (Faker $faker) {
@@ -16,7 +18,7 @@ $factory->define(Detailcommande::class, function (Faker $faker) {
         'created_at'=>now()
     ];
 });
-/*    $table->increments('id');
+   $table->increments('id');
             $table->double('prixunitaire', 8, 3);
             $table->double('prixtotale', 8, 3);
             $table->integer('quantitecommande');
@@ -26,4 +28,4 @@ $factory->define(Detailcommande::class, function (Faker $faker) {
             $table->foreign('Commande_id')->references('id')->on('Commandes')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('Produit_id')->unsigned();
             $table->foreign('Produit_id')->references('id')->on('produits')->onDelete('restrict')->onUpdate('restrict');
-            $table->timestamps();*/
+            $table->timestamps();

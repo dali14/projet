@@ -19,8 +19,8 @@ class CreateDetailcommandesTable extends Migration
             $table->double('prixtotale', 8, 3);
             $table->integer('quantitecommande');
             $table->string('adressecommande');
-            $table->integer('Commande_id')->unsigned();
-            $table->foreign('Commande_id')->references('id')->on('Commandes')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('commande_id')->unsigned();
+            $table->foreign('commande_id')->references('id')->on('commandes')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('Produit_id')->unsigned();
             $table->foreign('Produit_id')->references('id')->on('produits')->onDelete('restrict')->onUpdate('restrict');
             $table->timestamps();

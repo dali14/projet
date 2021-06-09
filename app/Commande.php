@@ -8,7 +8,7 @@ class Commande extends Model
 {
     public function detailcommandes()
     {
-        return $this->hasMany('App\Detailcommande');
+        return $this->hasMany(Detailcommande::class);
     }
     public function paiements()
     {

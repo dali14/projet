@@ -1,22 +1,19 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
-use App\Detailcommande;
+use Cart;
 use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
 
-class detailcommandeController extends Controller
+class cartController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('admin.detailcommandes.index', ['detailcommandes' => Detailcommande::all()]);
-    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -34,29 +31,42 @@ class detailcommandeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function add(Request $request)
     {
-        //
+        Cart::add(array(
+            'id' => 456, // inique row ID
+            'name' => 'Sample Item',
+            'price' => 67.99,
+            'quantity' => 100,
+            'attributes' => array()
+        ));
+
+        //return redirect(route(name: 'cart_index'));
+    }
+    public function index()
+    {
+        $content = Cart::getContent();
+        dd($content);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Detailcommande  $detailcommande
+     * @param  \App\cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function show(Detailcommande $detailcommande)
+    public function show(cart $cart)
     {
-        return view('admin.detailcommandes.affiche',['detailcommande' => $detailcommande->commande->detailcommandes]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Detailcommande  $detailcommande
+     * @param  \App\cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function edit(Detailcommande $detailcommande)
+    public function edit(cart $cart)
     {
         //
     }
@@ -65,10 +75,10 @@ class detailcommandeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Detailcommande  $detailcommande
+     * @param  \App\cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Detailcommande $detailcommande)
+    public function update(Request $request, cart $cart)
     {
         //
     }
@@ -76,10 +86,10 @@ class detailcommandeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Detailcommande  $detailcommande
+     * @param  \App\cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Detailcommande $detailcommande)
+    public function destroy(cart $cart)
     {
         //
     }

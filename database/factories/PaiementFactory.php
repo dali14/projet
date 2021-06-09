@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Paiement::class, function (Faker $faker) {
     return [
-        'montant'=>$faker->randomFloat,
+        'montant'=>$faker->randomFloat(3),
         'type'=>$faker->sentence,
         'datepaiement'=>$faker->datetime,
         'Commande_id'=>Commande::get('id')->random(),

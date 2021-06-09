@@ -11,10 +11,7 @@ class Produit extends Model
     {
         return $this->hasMany('App\Detailcommande');
     }
-    public function detailproduits()
-    {
-        return $this->hasMany('App\Detailproduit');
-    }
+   
 
 
 }

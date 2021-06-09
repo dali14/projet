@@ -14,6 +14,7 @@ $factory->define(Commande::class, function (Faker $faker) {
         'Client_id'=>Client::get('id')->random(),
         'created_at'=>now()
     ];
+
 });
 
   /*  $table->increments('id');
@@ -25,3 +26,6 @@ $factory->define(Commande::class, function (Faker $faker) {
            $table->foreign('Client_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();*/
         
+
+});
+

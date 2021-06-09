@@ -9,7 +9,7 @@ class Detailcommande extends Model
 {
     public function commande()
     {
-        return $this->belongsTo('App\Commande');
+        return $this->belongsTo(Commande::class);
     }
     public function produit()
     {

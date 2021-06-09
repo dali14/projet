@@ -28,10 +28,16 @@ class HomeController extends Controller
     }
     public function welcome()
     {
-        $Produits = Produit::get('nomproduit') ;
+        $produits = Produit::all() ;
        
         return view('welcome',[
-            'produits' => $Produits
+            'produits' => $produits
         ]);
+    }
+
+    public function product($product_id)
+    {
+        $produit = Produit::findOrFail($product_id);
+        return view('product', ['produit' => $produit]);
     }
 }

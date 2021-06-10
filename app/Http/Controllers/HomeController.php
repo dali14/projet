@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 use Illuminate\Http\Request;
 use App\Produit;
@@ -24,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        
         return view('home');
     }
     public function welcome()

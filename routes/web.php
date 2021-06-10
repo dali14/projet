@@ -23,7 +23,6 @@ Route::get('/admin', function (){
 })->middleware('auth','admin')->name('admin.dashbord');
 
 
-
 Route::resource('clients', 'Admin\clientController')->middleware(['auth','admin']);// admin panel client liste
 Route::resource('commandes', 'Admin\commandeController')->middleware(['auth','admin']);//admin panel commande liste
 Route::resource('detailcommande' , 'admin\detailcommandeController')->middleware(['auth','admin']);//admin panel detailcommande liste

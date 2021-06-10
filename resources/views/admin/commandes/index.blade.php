@@ -9,16 +9,16 @@
     </div>
 @endif
 
-    <h2><i class="fas fa-users"></i> Liste des Commandes</h2><br> <br>
+    <h2>  <i class="fas fa-list"></i> Liste des Commandes</h2><br> <br>
     
     <table class="table table-striped">
         <thead>
             <th scope="col">#</th>
-            <th scope="col"><i class="fas fa-id-card"></i> Numero de commande</th>
-            <th scope="col"><i class="fas fa-user"></i> Etat de commande</th>
-            <th scope="col"><i class="fas fa-user"></i> Date de commande</th>
-            <th scope="col"><i class="fas fa-user"></i> Client ID</th>
-            <th scope="col"><i class="fas fa-user"></i> Action</th>
+            <th scope="col"> Numéro de commande</th>
+            <th scope="col"> Etat de commande</th>
+            <th scope="col"> Date de commande</th>
+            <th scope="col"> Client ID</th>
+            <th scope="col"> Opération</th>
 
           </tr>
         </thead>

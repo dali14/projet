@@ -16,7 +16,7 @@
         </button>
     </div>
 @endif
-    <h2><i class="fas fa-user-tag"></i> Détails sur la  Commande :<strong>{{ $commande->id' '.$commande->datecommande }}</strong></h2>
+    <h2>  <i class="fas fa-list"></i></i> Détails sur la  Commande :<strong>{{ $commande->id' '.$commande->datecommande }}</strong></h2>
     <div class="card">
         <h5 class="card-header"><strong>{{ $commande->nom.' '.$commande->prenom }}</strong></h5>
         <div class="card-body">

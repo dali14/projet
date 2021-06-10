@@ -10,26 +10,26 @@
     </div>
 @endif
 
-    <h2><i class="fas fa-users"></i> Liste des Produits</h2><br> <br>
+    <h2><i class="fas fa-tshirt"></i> Liste des Produits</h2><br> <br>
     
     <table class="table table-striped">
         <thead>
       
-            <th scope="col"><i class="fas fa-id-card"></i> Num de produit</th>
+            <th scope="col"> Num de produit</th>
 
-            <th scope="col"><i class="fas fa-user"></i> Nom de produit</th>
+            <th scope="col"> Nom de produit</th>
 
-            <th scope="col"><i class="fas fa-user"></i> Prix de produit</th>
+            <th scope="col"> Prix de produit</th>
 
-            <th scope="col"><i class="fas fa-user"></i> Description</th>
+            <th scope="col"> Description</th>
 
-            <th scope="col"><i class="fas fa-user"></i> Categorie</th>
+            <th scope="col"> Categorie</th>
 
-            <th scope="col"><i class="fas fa-user"></i> Taille</th>
+            <th scope="col"> Taille</th>
 
-            <th scope="col"><i class="fas fa-user"></i> Stock</th>
+            <th scope="col"> Stock</th>
 
-            <th scope="col"><i class="fas fa-user"></i> Photo</th>
+            <th scope="col"> Photo</th>
 
 
 

@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
-
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use App\Produit;
 use Illuminate\Http\Request;
+use App\Produit;
 
-class ProduitController extends Controller
+class cartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,14 +13,10 @@ class ProduitController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-  
-        {
-            dd(Cart::content());
-            return view('admin.produits.index', ['produits' => Produit::all()]);
-        }
+    {
+        return view('cart.index');
+    }
 
-
-    
     /**
      * Show the form for creating a new resource.
      *
@@ -41,28 +35,42 @@ class ProduitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $duplicata = Cart::search(function ($cartItem, $rowId) use ($request){
+            return $cartItem->id == $request->id;
+        });
+        if ($duplicata->isNotEmpty()){
+            return redirect()->route('produit.index')->with('success', 'produit a deja  ajouter '); //pour ne pas ajouter le meme produit
+
+        }
+
+
+        $produit = Produit::find($request->id); //plus de securite on pass avec id seul pour ne pas change le prix 
+
+        
+        Cart ::add($produit->id, $produit->nomproduit, 1, $produit->prixdevente)
+            ->associate('App\Produit');
+        return redirect()->route('produit.index')->with('success', 'produit ajouter avec success');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Produit  $produit
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Produit $produit)
+    public function show($id)
     {
-        
-        
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Produit  $produit
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Produit $produit)
+    public function edit($id)
     {
         //
     }
@@ -71,10 +79,10 @@ class ProduitController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Produit  $produit
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Produit $produit)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -82,11 +90,12 @@ class ProduitController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Produit  $produit
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Produit $produit)
+    public function destroy($rowId)
     {
-        //
+        Cart::remove($rowId);
+        return back()->with('success',' Le produit a ete supprime.');
     }
 }

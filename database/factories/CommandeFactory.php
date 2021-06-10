@@ -27,5 +27,5 @@ $factory->define(Commande::class, function (Faker $faker) {
             $table->timestamps();*/
         
 
-});
+
 

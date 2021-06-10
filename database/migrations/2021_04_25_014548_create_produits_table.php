@@ -17,11 +17,7 @@ class CreateProduitsTable extends Migration
             $table->increments('id');
             $table->string('nomproduit');
             $table->double('prixdevente', 8, 3);
-
             $table->string('image');
-            $table->timestamps();
-
-
             $table->integer('stock');
             $table->enum('taille' , ['S','M','L'] );
             $table->enum('categorie', ['Homme','Femme']);

@@ -28,7 +28,9 @@ class ProduitController extends Controller
      */
     public function create()
     {
-        //
+       
+            return view('admin.produits.create');
+
     }
 
     /**
@@ -39,7 +41,13 @@ class ProduitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request)
+        $validatedData=$request->validate($this->validationRules()); 
+         $produit = Produit::create($validatedData);
+         return redirect()->route('produits.show', $produit)->with('storeProduit', "Produit Ajouter Avec Succés!");
+       
+
+        
     }
 
     /**
@@ -50,7 +58,7 @@ class ProduitController extends Controller
      */
     public function show(Produit $produit)
     {
-        
+        return view('admin.produits.affiche',['produit'=> $produit]);
         
     }
 
@@ -62,7 +70,7 @@ class ProduitController extends Controller
      */
     public function edit(Produit $produit)
     {
-        //
+        return view('admin.produits.edit',['produit'=> $produit]);
     }
 
     /**
@@ -74,7 +82,9 @@ class ProduitController extends Controller
      */
     public function update(Request $request, Produit $produit)
     {
-        //
+        $validatedData=$request->validate($this->validationRules());
+        $produit ->update($validatedData);
+        return redirect()->route('produits.show', $produit)->with('updateProduit', "Produit est modifié Avec Succés!");
     }
 
     /**
@@ -85,6 +95,19 @@ class ProduitController extends Controller
      */
     public function destroy(Produit $produit)
     {
-        //
+        $produit->delete();
+        return redirect()->route('produits.index')->with('deleteProduit', 'Produit est supprimé Avec Succés!');
+    }
+
+    private function validationRules(){
+        return [
+            'nomproduit'=>'required',
+            'prixdevente'=>'required',
+            'stock'=>'required',
+            'taille'=>'required',
+            'categorie'=>'required',
+            'description'=>'required',
+            'image'=>'required',
+        ];
     }
 }

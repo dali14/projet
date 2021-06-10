@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('main')
 <fieldset>
-    <legend>  <i class="fas fa-produit-edit"></i> Modifier  produit </legend>
+    <legend>  <i class="fas fa-user-edit"></i> Modifier  produit </legend>
     <form action="{{ route('produits.update', ['produit' => $produit->id]) }}" method="post">
       
       

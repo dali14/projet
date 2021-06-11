@@ -17,7 +17,7 @@ class ProduitController extends Controller
     public function index()
   
         {
-            dd(Cart::content());
+            
             return view('admin.produits.index', ['produits' => Produit::all()]);
         }
 

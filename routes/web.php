@@ -39,6 +39,17 @@ Route::get('/videpanier', function (){                                      //vi
 });
 Route::get('/panier/{rowId}','cartController@destroy')->name('cart.destroy');//supprime un element de panier
 
+//paiment routes
+
+Route::get('/paiement' ,'paimentController@index')->name('paiment.index');
+Route::post('/paiement' ,'paimentController@store')->name('paiment.store');
+Route::get('/merci', function(){
+    return view('paiment.merci');
+});
+
+
+
+
 /*Route::get('/clients', function (){
 
     return view('');

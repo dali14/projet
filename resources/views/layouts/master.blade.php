@@ -1,4 +1,7 @@
+
+
 <!doctype html>
+
 <html lang="fr">
   <head>
     <meta charset="utf-8">
@@ -6,11 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.83.1">
+    @yield('extra-meta')
     <title>Boutique</title>
-
+    @yield('extra-script')
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <!-- Favicons -->
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
@@ -155,7 +160,7 @@ h1, h2, h3, h4, h5, h6 {
         <a class="text-muted" href="{{ route('cart.index') }}">Panier <span class="badge badge-pill badge-dark">{{Cart::count()}}</php></span></a>
       </div>
       <div class="col-4 text-center">
-        <a class="blog-header-logo text-dark" href="#">Clothing</a>
+        <a class="blog-header-logo text-dark" href="/">Clothing</a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
         <a class="link-secondary" href="#" aria-label="Search">
@@ -196,7 +201,7 @@ h1, h2, h3, h4, h5, h6 {
   </p>
 </footer>
 
-
+@yield('extra-js')
     
   </body>
 </html>

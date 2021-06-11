@@ -13,7 +13,7 @@
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-primary">{{$produit->nomproduit}}</strong>
           <h3 class="mb-0"></h3>
-          <div class="mb-1 text-muted">${{$produit->prixdevente}}</div>
+          <div class="mb-1 text-muted">{{getPrice($produit->prixdevente)}}</div>
           <p>  <button id="size_S" aria-checked="false" role="radio" class="btn btn-sm btn-outline-secondary">S</button>
             <button id="size_M" aria-checked="false" role="radio" class="btn btn-sm btn-outline-secondary">M</button>
             <button id="size_L" aria-checked="false" role="radio" class="btn btn-sm btn-outline-secondary">L</button>
@@ -24,8 +24,6 @@
           @csrf
           
           <input type="hidden" name="id" value="{{$produit->id}}">
-          <input type="hidden" name="nomproduit" value="{{$produit->nomproduit}}">
-          <input type="hidden" name="prixdevente" value="{{$produit->prixdevente}}">
           <p><button type="submit" aria-disabled="false" data-test-id="add-to-bag-button" class="btn btn-sm btn-outline-secondary" data-heap-action="add to cart" data-heap-label="add to bag" >Ajoute Au panier</button></p>
           </form>
         </div>

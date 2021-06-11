@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
-
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers;
+use Stripe\Stripe;
+use Stripe\PaymentIntent;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use App\Produit;
 use Illuminate\Http\Request;
-
-class ProduitController extends Controller
+use Illuminate\Support\Arr;
+class paimentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,14 +14,30 @@ class ProduitController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-  
-        {
-            
-            return view('admin.produits.index', ['produits' => Produit::all()]);
+    {
+
+        if(Cart::count() == 0 ){
+
+            return redirect()->route('produit.index');  // redirect home page if bag is empty
         }
 
 
-    
+        Stripe::setApiKey('sk_test_51J0sd5E3tX7X8e4oMkoGMhld8FX0R3TP0FAvV3SAYDO3ata5BmOoojZjoMeg5FcgneeE9rugKt7Uyhpns1WcWavJ00ElfMnP0e');
+
+        $intent = \Stripe\PaymentIntent::create([
+            'amount' => round(Cart::total()*100),
+            'currency' => 'eur',
+            
+          ]);
+       
+        $clientSecret = Arr::get('$intent', 'client_secret');
+            
+        return view('paiment.index', [
+            'clientSecret' => $intent["client_secret"]
+
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -40,29 +55,30 @@ class ProduitController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        Cart::destroy();
+        $data = $request->json()->all();
+        return $data['paymentIntent'];
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Produit  $produit
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Produit $produit)
+    public function show($id)
     {
-        
-        
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Produit  $produit
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Produit $produit)
+    public function edit($id)
     {
         //
     }
@@ -71,10 +87,10 @@ class ProduitController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Produit  $produit
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Produit $produit)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -82,10 +98,10 @@ class ProduitController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Produit  $produit
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Produit $produit)
+    public function destroy($id)
     {
         //
     }

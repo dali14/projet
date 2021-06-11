@@ -12,6 +12,11 @@ class Produit extends Model
         return $this->hasMany('App\Detailcommande');
     }
    
-    
+    public function getPrice()
+    {
+        $price = $this->price;
+
+        return number_format($price, 2, ',', ' ') . ' €';
+    }
 
 }
